@@ -4,7 +4,7 @@ from datetime import datetime, timedelta
 users = [
     {"name": "John Doe", "birthday": "1985.01.23"},
     {"name": "Jane Smith", "birthday": "1990.01.27"},
-    {"name": "David K", "birthday": "1990.03.12" }
+    {"name": "David K", "birthday": "1990.03.17" }
 ]
 #print(users)
 
@@ -36,8 +36,8 @@ def find_next_weekday(d , weekday: int):
 
 
 
-def greetings_birthday():
-    days = 7
+def get_upcoming_birthdays(days=7):
+    
     today = datetime.today().date()
     upcoming_birthdays = []
     
@@ -60,4 +60,4 @@ def greetings_birthday():
             })
     print(upcoming_birthdays)
 
-greetings_birthday()
+get_upcoming_birthdays()

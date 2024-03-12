@@ -13,8 +13,10 @@ def get_numbers_ticket(min,max, quantity):
         
         numbers = random.sample(numbers, quantity)
         numbers.sort()
-        return print(numbers)
+        return numbers
+    
     else: 
-        print('Введите числа от 1 до 1000')
+        numbers = []
+        return numbers
 
-get_numbers_ticket()   
+get_numbers_ticket(0,10,5)
