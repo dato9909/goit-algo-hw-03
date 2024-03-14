@@ -6,10 +6,10 @@ users = [
     {"name": "Jane Smith", "birthday": "1990.01.27"},
     {"name": "David K", "birthday": "1990.03.17" }
 ]
-#print(users)
 
 
-def first_func(users):
+
+def replace_prepared_users(users):
 
     prepared_users = []
 
@@ -24,7 +24,7 @@ def first_func(users):
    
 
 
-def find_next_weekday(d , weekday: int):
+def find_next_weekday(d , weekday=0):
     # Функция для нахождения следующего заданного дня недели после заданной даты
     # d : datatime.date - начальная дата
     # weekday : int - день недели от 0 до 6
@@ -36,12 +36,13 @@ def find_next_weekday(d , weekday: int):
 
 
 
-def get_upcoming_birthdays(days=7):
-    
+def get_upcoming_birthdays(users, days= 7):
+
     today = datetime.today().date()
+
     upcoming_birthdays = []
     
-    prepared_users = first_func(users)
+    prepared_users = replace_prepared_users(users)
 
     for user in prepared_users:
         birthday_this_year = user["birthday"].replace(year = today.year ) #1985 -> 2024 
@@ -58,6 +59,10 @@ def get_upcoming_birthdays(days=7):
                 'name': user['name'],
                 'congratulation_date': congratulation_date_str
             })
-    print(upcoming_birthdays)
+    return upcoming_birthdays
 
-get_upcoming_birthdays()
+upcoming_birthdays = get_upcoming_birthdays(users, 7)
+
+print('Список привітань на цьому тижні:', upcoming_birthdays)
+
+get_upcoming_birthdays(users)
