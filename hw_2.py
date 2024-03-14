@@ -3,20 +3,25 @@ import random
 
 
 def get_numbers_ticket(min,max, quantity):
+
     numbers = []
 
     if min >= 1 and max <= 1000:
 
+        if max - min >= quantity:
 
-        for i in range(min,max+1):
-            numbers.append(i)
+            for i in range(min,max+1):  
+                numbers.append(i)
+            
+            numbers = random.sample(numbers, quantity)
+            numbers.sort()
+            return numbers
         
-        numbers = random.sample(numbers, quantity)
-        numbers.sort()
-        return numbers
-    
+        else: 
+            return []
+        
     else: 
-        numbers = []
-        return numbers
+        return []
 
-get_numbers_ticket(0,10,5)
+
+get_numbers_ticket(10,14,6)
