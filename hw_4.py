@@ -2,9 +2,19 @@ from datetime import datetime, timedelta
 
 
 users = [
-    {"name": "John Doe", "birthday": "1985.01.23"},
-    {"name": "Jane Smith", "birthday": "1990.01.27"},
-    {"name": "David K", "birthday": "1990.03.17" }
+    {"name": "Mohel Smith", "birthday": "1995.03.13"},
+    {"name": "John Dark", "birthday": "1985.03.14"},
+    {"name": "Mary Dark", "birthday": "1985.03.15"},
+    {"name": "Derek Dark", "birthday": "1985.03.16"},
+    {"name": "Jane Smith", "birthday": "1990.03.17"},
+    {"name": "Liam Smith", "birthday": "1995.03.18"},
+    {"name": "Mohel Smith", "birthday": "1995.03.19"},
+    {"name": "John Dark", "birthday": "1985.03.20"},
+    {"name": "Mary Dark", "birthday": "1985.03.21"},
+    {"name": "Derek Dark", "birthday": "1985.03.22"},
+    {"name": "Jane Smith", "birthday": "1990.03.23"},
+    {"name": "Nick Darsel", "birthday": "1984.03.24"},
+    {"name": "Jake Smith", "birthday": "1990.03.25"}, 
 ]
 
 
@@ -51,7 +61,7 @@ def get_upcoming_birthdays(users, days= 7):
             birthday_this_year = birthday_this_year.replace(year=today.year+1)
         
         if 0 <= (birthday_this_year - today).days <= days:
-            if birthday_this_year.weekday() <= 5: # Суббота, воскресенье
+            if birthday_this_year.weekday() >= 5: # Суббота, воскресенье
                 birthday_this_year = find_next_weekday(birthday_this_year , 0) # понедельник
             
             congratulation_date_str = birthday_this_year.strftime('%Y.%m.%d')
